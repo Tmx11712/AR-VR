@@ -26,12 +26,9 @@ public static class VuforiaDriverPreloader
         var pluginDir = Path.GetFullPath("Packages/com.ptc.vuforia.engine/Vuforia/Plugins/Windows/x64");
         if (!Directory.Exists(pluginDir)) return;
 
-        foreach (var dll in new[] { "UnityDriver.dll", "FileDriver.dll" })
-        {
-            var fullPath = Path.Combine(pluginDir, dll);
-            if (File.Exists(fullPath))
-                LoadLibrary(fullPath);
-        }
+        var fullPath = Path.Combine(pluginDir, "UnityDriver.dll");
+        if (File.Exists(fullPath))
+            LoadLibrary(fullPath);
     }
 }
 #endif
